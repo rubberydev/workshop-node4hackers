@@ -1,22 +1,22 @@
-/*  ----- callbacks ----*/ 
-function sleep (callback) {
+/*  ----- callbacks ----*/
+function sleep(callback) {
     setTimeout(() => {
         console.log("Hola mundo");
         callback()
     }, 1000);
 }
-/*
+
 console.log("---- inicio ----")
 
-sleep(function () {
+sleep(function() {
     console.log("---- fin -----")
 })
-*/
+
 
 
 
 /* ---- PROMSESAS ---- */
-function sleepPromise (callback) {
+function sleepPromise(callback) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log("Hola mundo");
@@ -30,6 +30,6 @@ console.log("---- inicio ----")
 
 sleepPromise()
     .then(sleepPromise)
-    .then(function () {
+    .then(function() {
         console.log("---- fin -----")
     })
