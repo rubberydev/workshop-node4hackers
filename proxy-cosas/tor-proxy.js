@@ -1,11 +1,11 @@
 const express = require('express');
-const tr = require('tor-request');
-const got = require('got');
-const app = express()
-const port = 3000
+const tor = require('tor-request');
+//const got = require('got');
+const app = express();
+const port = 3000;
 
 app.get('/', function (req, res) {
-    res.send('Hello World!')
+    res.send('Hello World!');
 })
 
 app.get('/tor-proxy', function (req, res) {
@@ -15,17 +15,18 @@ app.get('/tor-proxy', function (req, res) {
     */
     const url = req.query.url
     if(!url) {
-        return res.status(666).send("Me faltan datos!")
+        return res.status(666).send("Me faltan datos!");
     }
 
-    tr.request(url, function (err, response, body) {
+    tor.request(url, function (err, response, body) {
         
         if (err) {
-            console.log(err)
-            return res.status(500).send(err)
+            console.log(err);
+            return res.status(500).send(err);
         }
 
-        res.send(body)
+        res.send(body);
+        console.log(response);
     });
 })
 

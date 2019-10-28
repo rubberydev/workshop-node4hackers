@@ -17,6 +17,7 @@ app.get('/api', function (req, res) {
     }
 
     const url =  "http://airemad.com/api/v1/station"
+    // Solved issue in the spread operator, you must use Node version 8.2.1
     got(url)
         .then(response => allRequestWeather(JSON.parse(response.body)))
         .then(transformResponse)

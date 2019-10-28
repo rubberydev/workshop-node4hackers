@@ -6,6 +6,9 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
+//http://127.0.0.1:3000/name/?nombre=Julian
+// /name/:nombre
+// lo recibo como req.params.nombre
 app.get('/name', function (req, res) {
     res.send(`Hola ${req.query.nombre}!`)
 })
